@@ -11,7 +11,7 @@ const ColorModeSwitch = () => {
   return (
     <IconButton
       variant={"outline"}
-      colorScheme={"teal"}
+      colorScheme={colorMode === "light"? "yellow" : "teal"}
       aria-label={"Change Mode"}
       icon={colorMode === "light" ? <BsSun /> : <BsMoonFill />}
       onClick={handleClick}
