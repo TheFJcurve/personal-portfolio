@@ -1,15 +1,17 @@
-import { Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import "./App.css";
-import ColorSchemeIcon from "./components/ColorSchemeIcon";
+import About from "./components/About";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <>
-      <ColorSchemeIcon />
+    <Box>
+      <NavBar />
+      <About />
       <Text align={"center"} color="gray" fontSize={11}>
         Made by Sargun Singh Bhatti
       </Text>
-    </>
+    </Box>
   );
 }
 
