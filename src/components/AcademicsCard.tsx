@@ -86,14 +86,7 @@ const AcademicSemister = ({
 const AcademicsCard = ({ orientation, semister, subjects }: Props) => {
   const { colorMode } = useColorMode();
   const [isOpen, setIsOpen] = useState(true);
-  const fgColor =
-    colorMode === "dark"
-      ? orientation === "left"
-        ? "black"
-        : "red.600"
-      : orientation === "left"
-      ? "white"
-      : "red.600";
+  const fgColor = orientation === "left" ? "white" : "red.600";
   const bgColor =
     colorMode === "dark"
       ? orientation === "left"

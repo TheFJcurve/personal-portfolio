@@ -10,7 +10,6 @@ import {
   Link,
   SimpleGrid,
   Text,
-  useColorMode,
 } from "@chakra-ui/react";
 import { TbPointFilled } from "react-icons/tb";
 
@@ -19,7 +18,6 @@ interface ProjectCardInfoProps {
 }
 
 const ProjectCardInfo = ({ projectDescription }: ProjectCardInfoProps) => {
-  const { colorMode } = useColorMode();
   return (
     <Box
       display="flex"
@@ -33,7 +31,7 @@ const ProjectCardInfo = ({ projectDescription }: ProjectCardInfoProps) => {
         transform: "scale(1.05)",
       }}
       transition={"all 0.3s ease-in-out"}
-      color={colorMode === "dark" ? "black" : "white"}
+      color={"white"}
     >
       {projectDescription.map((description, index) => (
         <HStack margin={2} key={index}>
@@ -77,7 +75,9 @@ const ProjectCardLinks = ({
         <Heading size={"sm"} marginBottom={2}>
           Skills Used:{" "}
         </Heading>
-        <SimpleGrid columns={skills.length > 8 ? 5 : skills.length < 4 ? 2 : 4}>
+        <SimpleGrid
+          columns={skills.length > 8 ? 5 : skills.length <= 4 ? 2 : 4}
+        >
           {skills.map((skill, index) => (
             <Text key={index} padding={2}>
               {skill}
