@@ -26,19 +26,20 @@ const ProjectCardInfo = ({ projectDescription }: ProjectCardInfoProps) => {
       flexDirection="column"
       justifyContent="center"
       backgroundColor={"styleColor.600"}
-      borderRadius={"20px"}
+      borderRadius={30}
       _hover={{
         transform: "scale(1.05)",
       }}
       transition={"all 0.3s ease-in-out"}
       color={"white"}
-      height={"250px"}
       width={"100%"}
     >
       {projectDescription.map((description, index) => (
         <HStack margin={2} key={index}>
           <TbPointFilled />
-          <Text size={"sm"}>{description}</Text>
+          <Text align={"start"} size={"sm"}>
+            {description}
+          </Text>
         </HStack>
       ))}
     </Box>
@@ -60,14 +61,13 @@ const ProjectCardLinks = ({
   return (
     <Card
       variant={"outline"}
+      padding={2}
       borderColor={"styleColor.600"}
-      margin={2}
       _hover={{
         transform: "scale(1.05)",
       }}
       transition={"all 0.3s ease-in-out"}
-      borderRadius={"20px"}
-      width={"100%"}
+      borderRadius={30}
     >
       <CardHeader>
         <Heading size={"md"}>{projectTitle}</Heading>
@@ -77,7 +77,11 @@ const ProjectCardLinks = ({
           Skills Used:{" "}
         </Heading>
         <SimpleGrid
-          columns={skills.length > 8 ? 5 : skills.length <= 4 ? 2 : 4}
+          columns={{
+            sm: 1,
+            md: 2,
+            lg: 3,
+          }}
         >
           {skills.map((skill, index) => (
             <Text key={index} padding={2}>
@@ -87,13 +91,19 @@ const ProjectCardLinks = ({
         </SimpleGrid>
       </CardBody>
       <CardFooter justifyContent={"center"}>
-        {projectLinks.map((projectLink, index) => (
-          <Link href={projectLink} key={index} isExternal>
-            <Button colorScheme="styleColor" marginLeft={2}>
-              {projectLinkDisplayName[index]}
-            </Button>
-          </Link>
-        ))}
+        <SimpleGrid columns={{ sm: 1, md: 2 }} gap={2}>
+          {projectLinks.map((projectLink, index) => (
+            <Link href={projectLink} key={index} isExternal>
+              <Button
+                colorScheme="styleColor"
+                marginLeft={2}
+                _hover={{ backgroundColor: "styleColor.600", color: "white" }}
+              >
+                {projectLinkDisplayName[index]}
+              </Button>
+            </Link>
+          ))}
+        </SimpleGrid>
       </CardFooter>
     </Card>
   );
@@ -124,7 +134,12 @@ const ProjectCard = ({
   const isMdOrLarger = useBreakpointValue({ base: false, md: true });
 
   return (
-    <SimpleGrid columns={{ sm: 1, md: 2 }} gap={9} alignItems={"center"}>
+    <SimpleGrid
+      columns={{ sm: 1, md: 2 }}
+      gap={5}
+      alignItems={"center"}
+      marginBottom={8}
+    >
       {isMdOrLarger ? (
         orientation === "left" ? (
           <>
@@ -219,7 +234,7 @@ const Projects = () => {
             "https://github.com/TheFJcurve/Parivartan",
             "https://devpost.com/software/parivartan-car-security-simplified?ref_content=user-portfolio&ref_feature=in_progress",
           ]}
-          projectLinkDisplayName={["GitHub", "DevPost Hackathon Winner"]}
+          projectLinkDisplayName={["GitHub", "DevPost"]}
           skills={["Python", "Raspberry Pi", "FingerPrint Sensor"]}
         />
         <ProjectCard
@@ -235,7 +250,7 @@ const Projects = () => {
             "https://github.com/TheFJcurve/Klimacc",
             "https://devpost.com/software/klimacc-one-click-to-sustainability?ref_content=user-portfolio&ref_feature=in_progress",
           ]}
-          projectLinkDisplayName={["GitHub", "DevPost Hackathon Winner"]}
+          projectLinkDisplayName={["GitHub", "DevPost"]}
           skills={[
             "Python",
             "Tkinter",
