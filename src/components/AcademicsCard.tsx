@@ -1,9 +1,14 @@
-import { Box, Card, CardBody, HStack, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  CardBody,
+  HStack,
+  Heading,
+  useColorMode,
+} from "@chakra-ui/react";
 import { useState } from "react";
 
 interface Props {
-  bgColor: string;
-  fgColor: string;
   orientation: "left" | "right";
   semister: string;
   subjects: string[];
@@ -34,12 +39,8 @@ const AcadmicCourseCard = ({
       <CardBody>
         {isOpen &&
           subjects.map((subject, index) => (
-            <Box
-              key={index}
-              margin={1}
-              textAlign={{ row: "center", column: "left" }}
-            >
-              <Text>{subject}</Text>
+            <Box key={index} marginTop={2} marginBottom={2}>
+              <Heading size={"sm"}>{subject}</Heading>
             </Box>
           ))}
       </CardBody>
@@ -82,14 +83,26 @@ const AcademicSemister = ({
   );
 };
 
-const AcademicsCard = ({
-  bgColor,
-  fgColor,
-  orientation,
-  semister,
-  subjects,
-}: Props) => {
+const AcademicsCard = ({ orientation, semister, subjects }: Props) => {
+  const { colorMode } = useColorMode();
   const [isOpen, setIsOpen] = useState(true);
+  const fgColor =
+    colorMode === "dark"
+      ? orientation === "left"
+        ? "black"
+        : "red.600"
+      : orientation === "left"
+      ? "white"
+      : "red.600";
+  const bgColor =
+    colorMode === "dark"
+      ? orientation === "left"
+        ? "red.600"
+        : "black"
+      : orientation === "left"
+      ? "red.600"
+      : "white";
+
   return (
     <HStack
       gap={"200px"}

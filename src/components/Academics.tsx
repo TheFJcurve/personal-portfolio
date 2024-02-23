@@ -1,14 +1,14 @@
 import { Divider, Heading } from "@chakra-ui/react";
 import AcademicsCard from "./AcademicsCard";
+import AcademicsUniIntro from "./AcademicsUniIntro";
 
 const Academics = () => {
   return (
     <>
       <Heading size={"md"}>Academic Journey</Heading>
       <Divider margin={2} />
+      <AcademicsUniIntro />
       <AcademicsCard
-        bgColor={"black"}
-        fgColor={"red.600"}
         orientation={"right"}
         semister="2A"
         subjects={[
@@ -21,15 +21,11 @@ const Academics = () => {
         ]}
       />
       <AcademicsCard
-        bgColor={"red.600"}
-        fgColor={"black"}
         orientation={"left"}
         semister="1C"
         subjects={["STAT 231: Statistics", "COOP 1"]}
       />
       <AcademicsCard
-        bgColor={"black"}
-        fgColor={"red.600"}
         orientation={"right"}
         semister="1B"
         subjects={[
@@ -43,8 +39,6 @@ const Academics = () => {
         ]}
       />
       <AcademicsCard
-        bgColor={"red.600"}
-        fgColor={"black"}
         orientation={"left"}
         semister="1A"
         subjects={[

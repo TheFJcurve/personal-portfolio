@@ -10,20 +10,16 @@ const About = () => {
       <Heading size={"md"}>About</Heading>
       <Divider margin={2} />
       <HStack>
-      <AboutCard
+        <AboutCard
           icon={<IoBookSharp size={25} />}
           heading="Books"
-          body={[
-            "3 Short Stories Completed",
-            "Updates on Publishing Soon!",
-          ]}
+          body={["3 Short Stories Completed", "Updates on Publishing Soon!"]}
         />
         <AboutCard
           icon={<FaUniversity size={25} />}
           heading="Education"
           body={[
             "Computer Science",
-            "Artificial Intelligence Specialization",
             "Statistics and Combinatorics  Minor",
             "The University of Waterloo",
           ]}
