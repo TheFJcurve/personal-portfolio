@@ -29,6 +29,7 @@ const SkillsCard = ({ skillHeading, skills }: SkillsCardProps) => {
       _hover={{
         transform: "scale(1.05)",
         backgroundColor: "styleColor.600",
+        color: "white",
       }}
     >
       <CardHeader>

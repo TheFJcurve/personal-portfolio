@@ -30,6 +30,7 @@ const AboutCard = ({ icon, heading, body }: AboutCardProps) => {
       _hover={{
         transform: "scale(1.05)",
         backgroundColor: "styleColor.600",
+        color: "white",
       }}
       margin={4}
       height={"250px"}
