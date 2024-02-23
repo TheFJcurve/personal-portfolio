@@ -19,17 +19,16 @@ interface SkillsCardProps {
 const SkillsCard = ({ skillHeading, skills }: SkillsCardProps) => {
   return (
     <Card
-      width={"550px"}
-      height={"300px"}
-      margin={"20px"}
+      width={"100%"}
+      margin={3}
       variant={"outline"}
-      borderColor={"red.600"}
+      borderColor={"styleColor.600"}
       style={{
         transition: "all 0.3s ease-in-out",
       }}
       _hover={{
         transform: "scale(1.05)",
-        backgroundColor: "red.600",
+        backgroundColor: "styleColor.600",
       }}
     >
       <CardHeader>
@@ -57,7 +56,7 @@ const Skills = () => {
     <>
       <Heading size={"md"}>Skills</Heading>
       <Divider margin={2} />
-      <SimpleGrid columns={2}>
+      <SimpleGrid columns={{ sm: 1, md: 2 }} gap={6} justifyItems={"center"}>
         <SkillsCard
           skillHeading={"Full Stack Development"}
           skills={[

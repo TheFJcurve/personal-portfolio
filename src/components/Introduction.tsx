@@ -38,7 +38,7 @@ const IntroductionText = ({
       <Text margin={1}>
         <Highlight
           query={"Computer Science"}
-          styles={{ px: "2", py: "1", rounded: "full", bg: "red.400" }}
+          styles={{ px: "2", py: "1", rounded: "full", bg: "styleColor.400" }}
         >
           Computer Science
         </Highlight>

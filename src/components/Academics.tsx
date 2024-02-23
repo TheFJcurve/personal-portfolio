@@ -19,7 +19,7 @@ const AcademicsUniIntro = () => {
         borderRadius={"40px"}
         height={"200px"}
         width={"800px"}
-        borderColor={"red.600"}
+        borderColor={"styleColor.600"}
         variant={"outline"}
         transition={"all 0.3s ease-in-out"}
         _hover={{
@@ -123,14 +123,14 @@ const AcademicsCard = ({
 }: AcademicCardProps) => {
   const { colorMode } = useColorMode();
   const [isOpen, setIsOpen] = useState(true);
-  const fgColor = orientation === "left" ? "white" : "red.600";
+  const fgColor = orientation === "left" ? "white" : "styleColor.600";
   const bgColor =
     colorMode === "dark"
       ? orientation === "left"
-        ? "red.600"
+        ? "styleColor.600"
         : "black"
       : orientation === "left"
-      ? "red.600"
+      ? "styleColor.600"
       : "white";
 
   return (

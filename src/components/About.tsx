@@ -4,14 +4,14 @@ import {
   CardBody,
   CardHeader,
   Divider,
-  HStack,
   Heading,
+  SimpleGrid,
   Text,
 } from "@chakra-ui/react";
-import { FaUniversity } from "react-icons/fa";
-import { PiProjectorScreenChart } from "react-icons/pi";
-import { IoBookSharp } from "react-icons/io5";
 import { ReactNode } from "react";
+import { FaUniversity } from "react-icons/fa";
+import { IoBookSharp } from "react-icons/io5";
+import { PiProjectorScreenChart } from "react-icons/pi";
 
 interface AboutCardProps {
   icon: ReactNode;
@@ -22,18 +22,18 @@ interface AboutCardProps {
 const AboutCard = ({ icon, heading, body }: AboutCardProps) => {
   return (
     <Card
-      margin={4}
-      width={"350px"}
-      height={"250px"}
       variant={"outline"}
-      borderColor={"red.600"}
+      borderColor={"styleColor.600"}
       style={{
         transition: "all 0.3s ease-in-out",
       }}
       _hover={{
         transform: "scale(1.05)",
-        backgroundColor: "red.600",
+        backgroundColor: "styleColor.600",
       }}
+      margin={4}
+      height={"250px"}
+      width={"100%"}
     >
       <CardHeader>
         <Box justifyContent={"center"} display={"flex"}>
@@ -55,7 +55,11 @@ const About = () => {
     <>
       <Heading size={"md"}>About</Heading>
       <Divider margin={2} />
-      <HStack>
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 3 }}
+        justifyItems={"center"}
+        gap={5}
+      >
         <AboutCard
           icon={<IoBookSharp size={25} />}
           heading="Books"
@@ -80,7 +84,7 @@ const About = () => {
             "Countless People Impacted",
           ]}
         />
-      </HStack>
+      </SimpleGrid>
     </>
   );
 };

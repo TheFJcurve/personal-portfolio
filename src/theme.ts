@@ -19,7 +19,7 @@ const theme = extendTheme({
             800: '#121212',
             900: '#111'
         },
-        red: {
+        styleColor: {
             50: "#FFF5F5",
             100: "#FED7D7",
             200: "#FEB2B2",
