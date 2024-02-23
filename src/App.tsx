@@ -1,15 +1,15 @@
-import { Box, Divider, Text } from "@chakra-ui/react";
+import { Divider, SimpleGrid, Text } from "@chakra-ui/react";
 import "./App.css";
-import Introduction from "./components/Introduction";
-import NavBar from "./components/NavBar";
 import About from "./components/About";
 import Academics from "./components/Academics";
+import Introduction from "./components/Introduction";
+import NavBar from "./components/NavBar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 
 function App() {
   return (
-    <Box>
+    <SimpleGrid columns={1}>
       <NavBar />
       <Introduction />
       <About />
@@ -20,7 +20,7 @@ function App() {
       <Text align={"center"} color="gray" fontSize={11}>
         Made by Sargun Singh Bhatti
       </Text>
-    </Box>
+    </SimpleGrid>
   );
 }
 
