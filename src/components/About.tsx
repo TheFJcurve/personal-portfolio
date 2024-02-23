@@ -1,31 +1,45 @@
-import { Grid, GridItem, Image } from "@chakra-ui/react";
-import AboutText from "./AboutText";
-import sargun from "../assets/sargun.png";
+import { Divider, HStack, Heading } from "@chakra-ui/react";
+import AboutCard from "./AboutCard";
+import { FaUniversity } from "react-icons/fa";
+import { PiProjectorScreenChart } from "react-icons/pi";
+import { IoBookSharp } from "react-icons/io5";
 
 const About = () => {
   return (
-    <Grid
-      templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
-      marginTop={10}
-    >
-      <GridItem textAlign={"left"} marginLeft={10}>
-        <AboutText
-          name="Sargun Singh Bhatti"
-          email="ss2bhatt@uwaterloo.ca"
-          linkedin="https://www.linkedin.com/in/sargun-singh-bhatti/"
-          github="https://github.com/TheFJcurve"
-          devpost="https://devpost.com/sargunbhatti27?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav"
-          instagram="https://www.instagram.com/sargun.s.bhatti/"
+    <>
+      <Heading size={"md"}>About</Heading>
+      <Divider margin={2} />
+      <HStack>
+      <AboutCard
+          icon={<IoBookSharp size={25} />}
+          heading="Books"
+          body={[
+            "3 Short Stories Completed",
+            "Updates on Publishing Soon!",
+          ]}
         />
-      </GridItem>
-      <GridItem>
-        <Image
-          src={sargun}
-          alt="Picture of Sargun Singh Bhatti"
-          width={"600px"}
+        <AboutCard
+          icon={<FaUniversity size={25} />}
+          heading="Education"
+          body={[
+            "Computer Science",
+            "Artificial Intelligence Specialization",
+            "Statistics and Combinatorics  Minor",
+            "The University of Waterloo",
+          ]}
         />
-      </GridItem>
-    </Grid>
+        <AboutCard
+          icon={<PiProjectorScreenChart size={25} />}
+          heading="Projects"
+          body={[
+            "10+ Projects Completed",
+            "7+ Frameworks Used",
+            "2+ Cups of Coffee Consumed Daily",
+            "Countless People Impacted",
+          ]}
+        />
+      </HStack>
+    </>
   );
 };
 
