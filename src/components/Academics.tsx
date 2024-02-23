@@ -4,9 +4,10 @@ import {
   CardBody,
   CardHeader,
   Divider,
-  HStack,
   Heading,
+  SimpleGrid,
   Text,
+  useBreakpointValue,
   useColorMode,
 } from "@chakra-ui/react";
 import { useState } from "react";
@@ -15,10 +16,8 @@ const AcademicsUniIntro = () => {
   return (
     <Box display="flex" justifyContent="center">
       <Card
-        margin={"20px"}
-        borderRadius={"40px"}
-        height={"200px"}
-        width={"800px"}
+        width={"100%"}
+        borderRadius={20}
         borderColor={"styleColor.600"}
         variant={"outline"}
         transition={"all 0.3s ease-in-out"}
@@ -57,12 +56,11 @@ const AcadmicCourseCard = ({
 }: AcadmicCourseCardProps) => {
   return (
     <Card
-      width={isOpen ? "500px" : "0px"}
-      height={"250px"}
+      width={isOpen ? "100%" : "0px"}
       color={fgColor}
       backgroundColor={bgColor}
-      borderRadius="40px"
-      transition={"all 0.2s ease-in-out"}
+      borderRadius={20}
+      transition={"all 0.3s ease-in-out"}
     >
       <CardBody>
         {isOpen &&
@@ -132,32 +130,46 @@ const AcademicsCard = ({
       : orientation === "left"
       ? "styleColor.600"
       : "white";
+  const isMdOrLarger = useBreakpointValue({ base: false, md: true });
 
   return (
-    <HStack
-      gap={"200px"}
-      display={"flex"}
-      justifyContent={"center"}
-      margin={10}
-    >
-      {orientation === "left" ? (
-        <>
-          <AcademicSemister
-            setIsOpen={setIsOpen}
-            isOpen={isOpen}
-            fgColor={fgColor}
-            bgColor={bgColor}
-            semister={semister}
-          />
-          <AcadmicCourseCard
-            isOpen={isOpen}
-            fgColor={fgColor}
-            bgColor={bgColor}
-            subjects={subjects}
-          />
-        </>
+    <Box gap={"200px"} display={"flex"} justifyContent={"center"} margin={10}>
+      {isMdOrLarger ? (
+        orientation === "left" ? (
+          <SimpleGrid justifyItems={"center"} alignItems={"center"} columns={2}>
+            <AcademicSemister
+              setIsOpen={setIsOpen}
+              isOpen={isOpen}
+              fgColor={fgColor}
+              bgColor={bgColor}
+              semister={semister}
+            />
+            <AcadmicCourseCard
+              isOpen={isOpen}
+              fgColor={fgColor}
+              bgColor={bgColor}
+              subjects={subjects}
+            />
+          </SimpleGrid>
+        ) : (
+          <SimpleGrid alignItems={"center"} justifyItems={"center"} columns={2}>
+            <AcadmicCourseCard
+              isOpen={isOpen}
+              fgColor={fgColor}
+              bgColor={bgColor}
+              subjects={subjects}
+            />
+            <AcademicSemister
+              setIsOpen={setIsOpen}
+              isOpen={isOpen}
+              fgColor={fgColor}
+              bgColor={bgColor}
+              semister={semister}
+            />
+          </SimpleGrid>
+        )
       ) : (
-        <>
+        <SimpleGrid justifyItems={"center"} columns={1} gap={5}>
           <AcadmicCourseCard
             isOpen={isOpen}
             fgColor={fgColor}
@@ -171,9 +183,9 @@ const AcademicsCard = ({
             bgColor={bgColor}
             semister={semister}
           />
-        </>
+        </SimpleGrid>
       )}
-    </HStack>
+    </Box>
   );
 };
 
