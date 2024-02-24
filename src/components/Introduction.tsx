@@ -1,12 +1,12 @@
 import {
-  Grid,
   GridItem,
   HStack,
   Heading,
   Highlight,
   Image,
   Link,
-  Text,
+  SimpleGrid,
+  Text
 } from "@chakra-ui/react";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -81,8 +81,9 @@ const IntroductionText = ({
 
 const Introduction = () => {
   return (
-    <Grid
-      templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
+    <SimpleGrid
+      justifyItems={"center"}
+      columns={{ sm: 1, md: 2 }}
       marginTop={10}
       gap={5}
     >
@@ -104,7 +105,7 @@ const Introduction = () => {
           style={{ alignSelf: "center" }}
         />
       </GridItem>
-    </Grid>
+    </SimpleGrid>
   );
 };
 
