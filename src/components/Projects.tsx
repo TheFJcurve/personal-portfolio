@@ -203,9 +203,10 @@ const Projects = () => {
             "NodeJS",
             "ExpressJS",
             "MongoDB",
-            "ChakraUI",
+            "Docker",
             "LaTeX",
             "Bash",
+            "Chakra-UI",
           ]}
         />
         <ProjectCard
