@@ -193,10 +193,11 @@ const Projects = () => {
             "LaTeX to generate beautiful and stable resumes in a choice of fonts.",
           ]}
           projectLinks={[
+            "https://resume-generator-app-red.vercel.app",
             "https://github.com/TheFJcurve/resume-generator-app",
             "https://github.com/TheFJcurve/Resume-Generator",
           ]}
-          projectLinkDisplayName={["GitHub", "Bash Version"]}
+          projectLinkDisplayName={["Website", "GitHub", "Bash Version"]}
           skills={[
             "ReactJS",
             "NodeJS",
