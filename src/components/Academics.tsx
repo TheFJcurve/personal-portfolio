@@ -91,11 +91,11 @@ const SemisterSubjectBox = ({ subjects }: SemisterSubjectBoxProps) => {
     CS: "blue",
     STAT: "teal",
     MATH: "purple",
-    CO: "green",
+    CO: "magenta",
     ENGL: "orange",
-    BET: "pink",
-    ECON: "yellow",
-    PSYCH: "red",
+    BET: "skyblue",
+    ECON: "green",
+    PSYCH: "pink",
     COOP: "brown",
   };
 
