@@ -5,12 +5,15 @@ import {
   CardHeader,
   Divider,
   Heading,
-  SimpleGrid,
   Text,
-  useBreakpointValue,
   useColorMode,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import { FaUniversity } from "react-icons/fa";
 
 const AcademicsUniIntro = () => {
   return (
@@ -41,201 +44,137 @@ const AcademicsUniIntro = () => {
   );
 };
 
-interface AcadmicCourseCardProps {
-  isOpen: boolean;
-  fgColor: string;
-  bgColor: string;
+interface Semister {
+  semisterID: string;
   subjects: string[];
 }
 
-const AcadmicCourseCard = ({
-  isOpen,
-  fgColor,
-  bgColor,
-  subjects,
-}: AcadmicCourseCardProps) => {
-  return (
-    <Card
-      width={isOpen ? "100%" : "0px"}
-      color={fgColor}
-      backgroundColor={bgColor}
-      borderRadius={20}
-      transition={"all 0.3s ease-in-out"}
-    >
-      <CardBody>
-        {isOpen &&
-          subjects.map((subject, index) => (
-            <Box key={index} marginTop={2} marginBottom={2}>
-              <Heading size={"sm"}>{subject}</Heading>
-            </Box>
-          ))}
-      </CardBody>
-    </Card>
-  );
-};
-
-interface AcademicSemisterProps {
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  isOpen: boolean;
-  fgColor: string;
-  bgColor: string;
-  semister: string;
+interface AcademicsTimelineProps {
+  listOfSemisters: Semister[];
 }
 
-const AcademicSemister = ({
-  setIsOpen,
-  isOpen,
-  fgColor,
-  bgColor,
-  semister,
-}: AcademicSemisterProps) => {
-  return (
-    <Box
-      borderRadius={10}
-      width={"70px"}
-      height={"70px"}
-      backgroundColor={bgColor}
-      color={fgColor}
-      justifyContent={"center"}
-      alignItems={"center"}
-      display={"flex"}
-      onClick={() => setIsOpen(!isOpen)}
-      cursor={"pointer"}
-      _hover={{ transform: "scale(1.1)" }}
-      transition={"all 0.3s ease-in-out"}
-    >
-      <Heading size={"md"}>{semister}</Heading>
-    </Box>
-  );
-};
-
-interface AcademicCardProps {
-  orientation: "left" | "right";
-  semister: string;
-  subjects: string[];
-}
-const AcademicsCard = ({
-  orientation,
-  semister,
-  subjects,
-}: AcademicCardProps) => {
+const AcademicsTimeline = ({ listOfSemisters }: AcademicsTimelineProps) => {
   const { colorMode } = useColorMode();
-  const [isOpen, setIsOpen] = useState(true);
-  const fgColor = orientation === "left" ? "white" : "styleColor.600";
-  const bgColor =
-    colorMode === "dark"
-      ? orientation === "left"
-        ? "styleColor.600"
-        : "black"
-      : orientation === "left"
-      ? "styleColor.600"
-      : "white";
-  const isMdOrLarger = useBreakpointValue({ base: false, md: true });
+  return (
+    <VerticalTimeline>
+      {listOfSemisters.map((semister, index) => {
+        return (
+          <VerticalTimelineElement
+            key={index}
+            date={semister.semisterID}
+            contentStyle={{
+              background: colorMode == "dark" ? "black" : "white",
+              borderWidth: 2,
+              borderColor: "red",
+              borderRadius: 10,
+            }}
+            contentArrowStyle={{ borderRight: "10px solid red" }}
+            iconStyle={{
+              background: colorMode == "dark" ? "black" : "white",
+            }}
+            icon={<FaUniversity />}
+          >
+            <SemisterSubjectBox subjects={semister.subjects} />
+          </VerticalTimelineElement>
+        );
+      })}
+    </VerticalTimeline>
+  );
+};
+
+interface SemisterSubjectBoxProps {
+  subjects: string[];
+}
+
+const SemisterSubjectBox = ({ subjects }: SemisterSubjectBoxProps) => {
+  const courseColor: { [key: string]: string } = {
+    CS: "blue",
+    STAT: "teal",
+    MATH: "purple",
+    CO: "green",
+    ENGL: "orange",
+    BET: "pink",
+    ECON: "yellow",
+    PSYCH: "red",
+    COOP: "brown",
+  };
 
   return (
-    <Box gap={"200px"} display={"flex"} justifyContent={"center"} margin={10}>
-      {isMdOrLarger ? (
-        orientation === "left" ? (
-          <SimpleGrid justifyItems={"center"} alignItems={"center"} columns={2}>
-            <AcademicSemister
-              setIsOpen={setIsOpen}
-              isOpen={isOpen}
-              fgColor={fgColor}
-              bgColor={bgColor}
-              semister={semister}
-            />
-            <AcadmicCourseCard
-              isOpen={isOpen}
-              fgColor={fgColor}
-              bgColor={bgColor}
-              subjects={subjects}
-            />
-          </SimpleGrid>
-        ) : (
-          <SimpleGrid alignItems={"center"} justifyItems={"center"} columns={2}>
-            <AcadmicCourseCard
-              isOpen={isOpen}
-              fgColor={fgColor}
-              bgColor={bgColor}
-              subjects={subjects}
-            />
-            <AcademicSemister
-              setIsOpen={setIsOpen}
-              isOpen={isOpen}
-              fgColor={fgColor}
-              bgColor={bgColor}
-              semister={semister}
-            />
-          </SimpleGrid>
-        )
-      ) : (
-        <SimpleGrid justifyItems={"center"} columns={1} gap={5}>
-          <AcadmicCourseCard
-            isOpen={isOpen}
-            fgColor={fgColor}
-            bgColor={bgColor}
-            subjects={subjects}
-          />
-          <AcademicSemister
-            setIsOpen={setIsOpen}
-            isOpen={isOpen}
-            fgColor={fgColor}
-            bgColor={bgColor}
-            semister={semister}
-          />
-        </SimpleGrid>
-      )}
+    <Box>
+      {subjects.map((subject, index) => {
+        const subjectCode = subject.split(" ")[0];
+        return (
+          <Text
+            key={index}
+            margin={3}
+            borderRadius={10}
+            borderColor={courseColor[subjectCode]}
+            borderWidth={2}
+          >
+            {subject}
+          </Text>
+        );
+      })}
     </Box>
   );
 };
 
 const Academics = () => {
+  const listOfSemisters: Semister[] = [
+    {
+      semisterID: "2B",
+      subjects: [
+        "CS 246: Object-Oriented Software Development",
+        "STAT 333: Stochastic Processes",
+        "STAT 332: Sampling and Experimental Design",
+        "STAT 330: Mathematical Statistics",
+        "ENGL 208B: Science Fiction",
+      ],
+    },
+    {
+      semisterID: "2A",
+      subjects: [
+        "CS 251: Computer Organization and Design",
+        "CS 245: Logic and Computation",
+        "CS 136L: Tools and Techniques for Software Development",
+        "CO 250: Introduction to Optimization",
+        "MATH 239: Introduction to Combinatorics",
+        "MATH 237: Calculus 3 for Honours Mathematics",
+      ],
+    },
+    {
+      semisterID: "1C",
+      subjects: ["STAT 231: Statistics", "COOP 1"],
+    },
+    {
+      semisterID: "1B",
+      subjects: [
+        "CS 136: Elementary Algorithm Design and Data Abstraction",
+        "CS 136L: Tools and Techniques for Software Development",
+        "STAT 230: Probability",
+        "MATH 138: Calculus 2 for Honours Mathematics",
+        "MATH 136: Linear Algebra 1 for Honours Mathematics",
+        "BET 100: Foundations of Entrepreneurial Practice",
+        "ECON 102: Introduction to Macroeconomics",
+      ],
+    },
+    {
+      semisterID: "1A",
+      subjects: [
+        "CS 135: Designing Functional Programs",
+        "MATH 137: Calculus 1 for Honours Mathematics",
+        "MATH 135: Algebra for Honours Mathematics",
+        "PSYCH 101: Introductory Psychology",
+        "ENGL 109: Introduction to Academic Writing",
+      ],
+    },
+  ];
   return (
     <>
       <Heading size={"md"}>Academic Journey</Heading>
       <Divider margin={2} />
       <AcademicsUniIntro />
-      <AcademicsCard
-        orientation={"right"}
-        semister="2A"
-        subjects={[
-          "CS 251: Computer Organization and Design",
-          "CS 245: Logic and Computation",
-          "CS 136L: Tools and Techniques for Software Development",
-          "CO 250: Introduction to Optimization",
-          "MATH 239: Introduction to Combinatorics",
-          "MATH 237: Calculus 3 for Honours Mathematics",
-        ]}
-      />
-      <AcademicsCard
-        orientation={"left"}
-        semister="1C"
-        subjects={["STAT 231: Statistics", "COOP 1"]}
-      />
-      <AcademicsCard
-        orientation={"right"}
-        semister="1B"
-        subjects={[
-          "CS 136: Elementary Algorithm Design and Data Abstraction",
-          "CS 136L: Tools and Techniques for Software Development",
-          "STAT 230: Probability",
-          "MATH 138: Calculus 2 for Honours Mathematics",
-          "MATH 136: Linear Algebra 1 for Honours Mathematics",
-          "BET 100: Foundations of Entrepreneurial Practice",
-          "ECON 102: Introduction to Macroeconomics",
-        ]}
-      />
-      <AcademicsCard
-        orientation={"left"}
-        semister="1A"
-        subjects={[
-          "CS 135: Designing Functional Programs",
-          "MATH 137: Calculus 1 for Honours Mathematics",
-          "MATH 135: Algebra for Honours Mathematics",
-          "PSYCH 101: Introductory Psychology",
-          "ENGL 109: Introduction to Academic Writing",
-        ]}
-      />
+      <AcademicsTimeline listOfSemisters={listOfSemisters} />
     </>
   );
 };
