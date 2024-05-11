@@ -224,8 +224,8 @@ const Projects = () => {
             "Used Git for version control and Linux for development.",
             "Recieved a full grade in The University of Waterloo's CS246 course.",
           ]}
-          projectLinks={["cpp-monopoly"]}
-          projectLinkDisplayName={["Details"]}
+          projectLinks={[""]}
+          projectLinkDisplayName={["Can't Share the Project :("]}
           skills={[
             "C++",
             "Object-Oriented Programming",
