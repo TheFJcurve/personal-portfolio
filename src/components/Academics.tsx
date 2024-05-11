@@ -17,7 +17,7 @@ import { FaUniversity } from "react-icons/fa";
 
 const AcademicsUniIntro = () => {
   return (
-    <Box display="flex" justifyContent="center">
+    <Box display="flex" justifyContent="center" marginBottom={3}>
       <Card
         width={"100%"}
         borderRadius={20}
@@ -56,7 +56,7 @@ interface AcademicsTimelineProps {
 const AcademicsTimeline = ({ listOfSemisters }: AcademicsTimelineProps) => {
   const { colorMode } = useColorMode();
   return (
-    <VerticalTimeline>
+    <VerticalTimeline lineColor={"#C53030"}>
       {listOfSemisters.map((semister, index) => {
         return (
           <VerticalTimelineElement
@@ -64,11 +64,11 @@ const AcademicsTimeline = ({ listOfSemisters }: AcademicsTimelineProps) => {
             date={semister.semisterID}
             contentStyle={{
               background: colorMode == "dark" ? "black" : "white",
-              borderWidth: 2,
-              borderColor: "red",
+              borderWidth: 1,
+              borderColor: "#C53030",
               borderRadius: 10,
             }}
-            contentArrowStyle={{ borderRight: "10px solid red" }}
+            contentArrowStyle={{ borderRight: "10px solid #C53030" }}
             iconStyle={{
               background: colorMode == "dark" ? "black" : "white",
             }}
@@ -110,6 +110,7 @@ const SemisterSubjectBox = ({ subjects }: SemisterSubjectBoxProps) => {
             borderRadius={10}
             borderColor={courseColor[subjectCode]}
             borderWidth={2}
+            height={7}
           >
             {subject}
           </Text>
@@ -170,12 +171,12 @@ const Academics = () => {
     },
   ];
   return (
-    <>
+    <Box>
       <Heading size={"md"}>Academic Journey</Heading>
       <Divider margin={2} />
       <AcademicsUniIntro />
       <AcademicsTimeline listOfSemisters={listOfSemisters} />
-    </>
+    </Box>
   );
 };
 

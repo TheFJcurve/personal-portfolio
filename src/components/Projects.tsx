@@ -91,7 +91,13 @@ const ProjectCardLinks = ({
         </SimpleGrid>
       </CardBody>
       <CardFooter justifyContent={"center"}>
-        <SimpleGrid columns={{ sm: 1, md: 2 }} gap={2}>
+        <SimpleGrid
+          columns={{
+            sm: 1,
+            md: projectLinks.length > 2 ? 3 : projectLinks.length <= 1 ? 1 : 2,
+          }}
+          gap={2}
+        >
           {projectLinks.map((projectLink, index) => (
             <Link href={projectLink} key={index} isExternal>
               <Button
@@ -211,6 +217,26 @@ const Projects = () => {
         />
         <ProjectCard
           orientation="right"
+          projectTitle={"C++ Monopoly"}
+          projectDescription={[
+            "A Monopoly game implemented in C++ using Object-Oriented Programming.",
+            "Implemented the game logic and the UI using XWindows.",
+            "Used Git for version control and Linux for development.",
+            "Recieved a full grade in The University of Waterloo's CS246 course.",
+          ]}
+          projectLinks={["cpp-monopoly"]}
+          projectLinkDisplayName={["Details"]}
+          skills={[
+            "C++",
+            "Object-Oriented Programming",
+            "Algorithms",
+            "XWindows",
+            "Linux",
+            "Git",
+          ]}
+        />
+        <ProjectCard
+          orientation="left"
           projectTitle={"GameHub: ReactJS Website"}
           projectDescription={[
             "Created a beautiful and responsive website to browse games.",
@@ -225,7 +251,7 @@ const Projects = () => {
           skills={["ReactJS", "RESTful APIs", "ChakraUI", "TypeScript"]}
         />
         <ProjectCard
-          orientation="left"
+          orientation="right"
           projectTitle={"Parivartan: Car Security System"}
           projectDescription={[
             "A car security system that uses a sensor to unlock the car.",
@@ -240,7 +266,7 @@ const Projects = () => {
           skills={["Python", "Raspberry Pi", "FingerPrint Sensor"]}
         />
         <ProjectCard
-          orientation="right"
+          orientation="left"
           projectTitle={"Klimacc: API Climate App"}
           projectDescription={[
             "Predict the weather of any city in the whole world!",

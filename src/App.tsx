@@ -16,7 +16,7 @@ function App() {
       <Skills />
       <Projects />
       <Academics />
-      <Divider marginBottom={2} />
+      <Divider marginTop={2} marginBottom={2} />
       <Text align={"center"} color="gray" fontSize={11}>
         Made by Sargun Singh Bhatti
       </Text>

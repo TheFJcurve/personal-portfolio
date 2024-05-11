@@ -61,21 +61,35 @@ const Skills = () => {
         <SkillsCard
           skillHeading={"Full Stack Development"}
           skills={[
-            "MongoDB",
+            "NextJS",
             "ExpressJS",
             "NodeJS",
             "ReactJS",
             "TypeScript",
-            "Docker",
+            "JavaScript",
           ]}
         />
         <SkillsCard
           skillHeading={"Data Management"}
-          skills={["Python", "Tableau", "MySQL", "Pandas", "Numpy", "Keras"]}
+          skills={[
+            "PostgreSQL",
+            "MongoDB",
+            "Tableau",
+            "MySQL",
+            "Pandas",
+            "Numpy",
+          ]}
         />
         <SkillsCard
           skillHeading={"Software Development"}
-          skills={["C/C++", "Bash Scripting", "Linux File System"]}
+          skills={[
+            "C/C++",
+            "Bash Scripting",
+            "Python",
+            "Linux File System",
+            "Docker",
+            "Git",
+          ]}
         />
         <SkillsCard
           skillHeading={"Mobile Development"}
@@ -85,6 +99,18 @@ const Skills = () => {
             "Swift",
             "XCode",
             "Google Firebase",
+            "React Native",
+          ]}
+        />
+        <SkillsCard
+          skillHeading={"Data Science"}
+          skills={[
+            "Keras",
+            "TensorFlow",
+            "SciKit-Learn",
+            "PyTorch",
+            "CNNs",
+            "LLMs",
           ]}
         />
       </SimpleGrid>
