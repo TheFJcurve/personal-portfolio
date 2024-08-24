@@ -97,6 +97,8 @@ const SemisterSubjectBox = ({ subjects }: SemisterSubjectBoxProps) => {
     ECON: "green",
     PSYCH: "pink",
     COOP: "brown",
+    ECE: "magenta",
+    CHEM: "gray",
   };
 
   return (
@@ -123,6 +125,16 @@ const SemisterSubjectBox = ({ subjects }: SemisterSubjectBoxProps) => {
 const Academics = () => {
   const listOfSemisters: Semister[] = [
     {
+      semisterID: "3A",
+      subjects: [
+        "CS 241: Foundations of Sequential Programs",
+        "CS 240: Data Structures and Data Management",
+        "ECE 457C: Reinforcement Learning",
+        "STAT 337: Introduction to Biostatistics",
+        "CHEM 120: General Chemistry 1",
+      ],
+    },
+    {
       semisterID: "2B",
       subjects: [
         "CS 246: Object-Oriented Software Development",
@@ -144,8 +156,8 @@ const Academics = () => {
       ],
     },
     {
-      semisterID: "1C",
-      subjects: ["STAT 231: Statistics", "COOP 1"],
+      semisterID: "COOP 1: Sweat Free Apparel",
+      subjects: ["STAT 231: Statistics"],
     },
     {
       semisterID: "1B",
