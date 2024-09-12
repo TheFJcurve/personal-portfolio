@@ -112,7 +112,6 @@ const SemisterSubjectBox = ({ subjects }: SemisterSubjectBoxProps) => {
             borderRadius={10}
             borderColor={courseColor[subjectCode]}
             borderWidth={2}
-            height={7}
           >
             {subject}
           </Text>
