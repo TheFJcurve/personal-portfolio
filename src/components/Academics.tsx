@@ -124,6 +124,10 @@ const SemisterSubjectBox = ({ subjects }: SemisterSubjectBoxProps) => {
 const Academics = () => {
   const listOfSemisters: Semister[] = [
     {
+      semisterID: "COOP 2: Ford Motor Company of Canada Limited",
+      subjects: ["CO 456: Introduction to Game Theory"],
+    },
+    {
       semisterID: "3A",
       subjects: [
         "CS 241: Foundations of Sequential Programs",
