@@ -124,6 +124,24 @@ const SemisterSubjectBox = ({ subjects }: SemisterSubjectBoxProps) => {
 const Academics = () => {
   const listOfSemisters: Semister[] = [
     {
+      semisterID: "COOP 4: Paxos Health",
+      subjects: ["ENGL 306A: Introduction to Linguistics"],
+    },
+    {
+      semisterID: "3B",
+      subjects: [
+        "CS 341: Algorithms",
+        "CS 350: Operating Systems",
+        "CS 370: Numerical Computation",
+        "CS 492: The Social Implications of Computing",
+        "CLAS 104: Classical Mythology",
+      ],
+    },
+    {
+      semisterID: "COOP 3: Ford Motor Company of Canada Limited",
+      subjects: ["STAT 341: Computational Statistics and Data Analysis"],
+    },
+    {
       semisterID: "COOP 2: Ford Motor Company of Canada Limited",
       subjects: ["CO 456: Introduction to Game Theory"],
     },
@@ -166,7 +184,6 @@ const Academics = () => {
       semisterID: "1B",
       subjects: [
         "CS 136: Elementary Algorithm Design and Data Abstraction",
-        "CS 136L: Tools and Techniques for Software Development",
         "STAT 230: Probability",
         "MATH 138: Calculus 2 for Honours Mathematics",
         "MATH 136: Linear Algebra 1 for Honours Mathematics",
