@@ -3,10 +3,10 @@ import Introduction from "@/components/Introduction";
 import NavBar from "@/components/NavBar";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import Academics from "@/components/Academics";
+import { Text } from "@chakra-ui/layout";
 import { Divider } from "@chakra-ui/layout";
 import { SimpleGrid } from "@chakra-ui/react";
-import Academics from "../components/Academics";
-import { Text } from "@chakra-ui/layout";
 
 export default function Home() {
   return (
