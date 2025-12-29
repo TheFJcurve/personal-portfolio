@@ -39,24 +39,24 @@ const AcademicsUniIntro = () => {
   );
 };
 
-interface Semister {
-  semisterID: string;
+interface Semester {
+  semesterID: string;
   subjects: string[];
 }
 
 interface AcademicsTimelineProps {
-  listOfSemisters: Semister[];
+  listOfSemesters: Semester[];
 }
 
-const AcademicsTimeline = ({ listOfSemisters }: AcademicsTimelineProps) => {
+const AcademicsTimeline = ({ listOfSemesters }: AcademicsTimelineProps) => {
   const { colorMode } = useColorMode();
   return (
     <VerticalTimeline lineColor={"#C53030"}>
-      {listOfSemisters.map((semister, index) => {
+      {listOfSemesters.map((semester, index) => {
         return (
           <VerticalTimelineElement
             key={index}
-            date={semister.semisterID}
+            date={semester.semesterID}
             contentStyle={{
               background: colorMode == "dark" ? "black" : "white",
               borderWidth: 1,
@@ -69,7 +69,7 @@ const AcademicsTimeline = ({ listOfSemisters }: AcademicsTimelineProps) => {
             }}
             icon={<FaUniversity />}
           >
-            <SemisterSubjectBox subjects={semister.subjects} />
+            <SemesterSubjectBox subjects={semester.subjects} />
           </VerticalTimelineElement>
         );
       })}
@@ -77,11 +77,11 @@ const AcademicsTimeline = ({ listOfSemisters }: AcademicsTimelineProps) => {
   );
 };
 
-interface SemisterSubjectBoxProps {
+interface SemesterSubjectBoxProps {
   subjects: string[];
 }
 
-const SemisterSubjectBox = ({ subjects }: SemisterSubjectBoxProps) => {
+const SemesterSubjectBox = ({ subjects }: SemesterSubjectBoxProps) => {
   const courseColor: { [key: string]: string } = {
     CS: "blue",
     STAT: "teal",
@@ -117,13 +117,23 @@ const SemisterSubjectBox = ({ subjects }: SemisterSubjectBoxProps) => {
 };
 
 const Academics = () => {
-  const listOfSemisters: Semister[] = [
+  const listOfSemesters: Semester[] = [
     {
-      semisterID: "COOP 4: Paxos Health",
+      semesterID: "4A",
+      subjects: [
+        "CS 488: Intro Computer Graphics",
+        "CS 486: Intro Artificial Intelligence",
+        "CS 480: Intro Machine Learning",
+        "CO 487: Applied Cryptography",
+        "HIST 236-001: Law & Society in Middle Ages",
+      ],
+    },
+    {
+      semesterID: "COOP 4: Paxos Health",
       subjects: ["ENGL 306A: Introduction to Linguistics"],
     },
     {
-      semisterID: "3B",
+      semesterID: "3B",
       subjects: [
         "CS 341: Algorithms",
         "CS 350: Operating Systems",
@@ -133,15 +143,15 @@ const Academics = () => {
       ],
     },
     {
-      semisterID: "COOP 3: Ford Motor Company of Canada Limited",
+      semesterID: "COOP 3: Ford Motor Company of Canada Limited",
       subjects: ["STAT 341: Computational Statistics and Data Analysis"],
     },
     {
-      semisterID: "COOP 2: Ford Motor Company of Canada Limited",
+      semesterID: "COOP 2: Ford Motor Company of Canada Limited",
       subjects: ["CO 456: Introduction to Game Theory"],
     },
     {
-      semisterID: "3A",
+      semesterID: "3A",
       subjects: [
         "CS 241: Foundations of Sequential Programs",
         "CS 240: Data Structures and Data Management",
@@ -151,7 +161,7 @@ const Academics = () => {
       ],
     },
     {
-      semisterID: "2B",
+      semesterID: "2B",
       subjects: [
         "CS 246: Object-Oriented Software Development",
         "STAT 333: Stochastic Processes",
@@ -161,7 +171,7 @@ const Academics = () => {
       ],
     },
     {
-      semisterID: "2A",
+      semesterID: "2A",
       subjects: [
         "CS 251: Computer Organization and Design",
         "CS 245: Logic and Computation",
@@ -172,11 +182,11 @@ const Academics = () => {
       ],
     },
     {
-      semisterID: "COOP 1: Sweat Free Apparel",
+      semesterID: "COOP 1: Sweat Free Apparel",
       subjects: ["STAT 231: Statistics"],
     },
     {
-      semisterID: "1B",
+      semesterID: "1B",
       subjects: [
         "CS 136: Elementary Algorithm Design and Data Abstraction",
         "STAT 230: Probability",
@@ -187,7 +197,7 @@ const Academics = () => {
       ],
     },
     {
-      semisterID: "1A",
+      semesterID: "1A",
       subjects: [
         "CS 135: Designing Functional Programs",
         "MATH 137: Calculus 1 for Honours Mathematics",
@@ -202,7 +212,7 @@ const Academics = () => {
       <Heading size={"md"}>Academic Journey</Heading>
       <Divider margin={2} />
       <AcademicsUniIntro />
-      <AcademicsTimeline listOfSemisters={listOfSemisters} />
+      <AcademicsTimeline listOfSemesters={listOfSemesters} />
     </Box>
   );
 };
