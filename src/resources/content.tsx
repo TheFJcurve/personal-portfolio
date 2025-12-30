@@ -48,7 +48,7 @@ const home: Home = {
   description: `Portfolio website showcasing my work as a ${person.role}`,
   headline: <>Building bridges between design and code</>,
   featured: {
-    display: true,
+    display: false,
     title: (
       <Row gap="12" vertical="center">
         <strong className="ml-4">Once UI</strong>{" "}
@@ -103,26 +103,22 @@ const about: About = {
       {
         company: "Paxos Health Inc.",
         timeframe: "September 2025 - December 2025",
-        role: "Senior Engineering Coop",
+        role: "Software Engineering Coop",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Managed AWS infrastructure and fullstack for an AI B2B SAAS Health startup, working with Kubernetes
+            jobs and services. Created and managed AWS SQS, RDS and EKS services.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Used AI inferences to build strong appeal cases for clients filing for insurance claims. Assisted team in client
+            meetings, code and infrastructure changes, product planning and improvements.
+          </>,
+          <>
+            Maintained Python FastAPI project with NextJS frontend and PostgreSQL database, Helm for container
+            management, using AWS Textract for text extraction and Vellum analysis chain for case analysis.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
         company: "Ford Motors Company of Canada",
@@ -130,13 +126,23 @@ const about: About = {
         role: "Software Developer Coop - Projection",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Managed phone connection, including: Bluetooth, Out of Band Connection, Wifi, CarPlay and Android Auto.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Upgrading the development environment from Soong to Gradle. Improved development time from over 5
+            minutes to under 4 seconds. Increasing code coverage by writing new unit tests.
           </>,
+          <>
+            Implementing bug fixes and code quality improvement, including but not limited to quality refactoring,
+            increased documentation and following newer Android code practices.
+          </>,
+          <>
+            Discussing important future decisions with CarPlay Architectures. Pro-actively discussing ways to improve
+            software quality by reaching out to other teams.
+          </>,
+          <>
+            Worked on Android Open-Source Project (AOSP).
+          </>
         ],
         images: [],
       },
@@ -144,7 +150,7 @@ const about: About = {
   },
   studies: {
     display: true, // set to false to hide this section
-    title: "Studies",
+    title: "Academics",
     institutions: [
       {
         name: "The University of Waterloo",
@@ -152,65 +158,112 @@ const about: About = {
       },
     ],
   },
+
   technical: {
     display: true, // set to false to hide this section
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
+        title: "Software Development",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>Languages and Frameworks to develop products and solutions.</>
         ),
         tags: [
           {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "Python",
+            icon: "python",
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "Kotlin/Java",
+            icon: "kotlin",
           },
-        ],
-      },
-      {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
-        tags: [
           {
-            name: "JavaScript",
+            name: "C++/C",
+            icon: "c",
+          },
+          {
+            name: "PostgreSQL",
+            icon: "psql",
+          },
+          {
+            name: "TypeScript/JavaScript",
             icon: "javascript",
           },
           {
-            name: "Next.js",
+            name: "Next.JS",
             icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
           },
         ],
         // optional: leave the array empty if you don't want to display images
-        images: [
+        images: [],
+      },
+      {
+        title: "Developer Tools",
+        description: (
+          <>Tools and Software used to create and manage solutions.</>
+        ),
+        tags: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "AWS",
+            icon: "aws",
+          },
+          {
+            name: "Docker",
+            icon: "docker",
+          },
+          {
+            name: "Postman",
+            icon: "postman",
+          },
+          {
+            name: "Kubernetes",
+            icon: "kubernetes",
+          },
+          {
+            name: "Git",
+            icon: "git",
           },
         ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
+      },
+      {
+        title: "Libraries & Packages",
+        description: (
+            <>Packages inside software used to solve a particular problem.</>
+        ),
+        tags: [
+          {
+            name: "Boto3",
+            icon: "aws",
+          },
+          {
+            name: "FastAPI",
+            icon: "python",
+          },
+          {
+            name: "Numpy",
+            icon: "python",
+          },
+          {
+            name: "Pandas",
+            icon: "python",
+          },
+          {
+            name: "Matplotlib",
+            icon: "python",
+          },
+          {
+            name: "PyTorch/TensorFlow",
+            icon: "python",
+          },
+          {
+            name: "Gradle",
+            icon: "kotlin",
+          },
+        ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
       },
     ],
   },
