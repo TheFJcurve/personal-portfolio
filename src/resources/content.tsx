@@ -46,7 +46,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Creating elegant solutions to important problems.</>,
   featured: {
     display: false,
     title: (
@@ -194,7 +194,6 @@ const about: About = {
             icon: "nextjs",
           },
         ],
-        // optional: leave the array empty if you don't want to display images
         images: [],
       },
       {
@@ -224,7 +223,6 @@ const about: About = {
             icon: "git",
           },
         ],
-        // optional: leave the array empty if you don't want to display images
         images: [],
       },
       {
@@ -262,7 +260,6 @@ const about: About = {
             icon: "kotlin",
           },
         ],
-        // optional: leave the array empty if you don't want to display images
         images: [],
       },
     ],
@@ -270,11 +267,19 @@ const about: About = {
 };
 
 const work: Work = {
-  path: "/work",
-  label: "Work",
-  title: `Work – ${person.name}`,
-  description: `Work Experience of ${person.name}`,
+  path: "/projects",
+  label: "Projects",
+  title: `Projects – ${person.name}`,
+  description: `Projects done by ${person.name}`,
 };
+
+const academics: Work = {
+  path: "/academics",
+  label: "Academics",
+  title: `Academics – ${person.name}`,
+  description: `Academic History of ${person.name}`,
+};
+
 
 const gallery: Gallery = {
   path: "/gallery",
@@ -315,4 +320,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, home, about, work, gallery };
+export { person, social, home, about, work, academics, gallery };
